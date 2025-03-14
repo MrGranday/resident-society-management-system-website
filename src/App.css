@@ -1,0 +1,11 @@
+.app {
+  min-height: 100vh;
+  background: var(--background-off);
+}
+
+/* Admin Dashboard specific styles */
+.app .admin-dashboard {
+  padding-top: 2rem;
+  min-height: 100vh;
+  background: var(--background-off);
+}

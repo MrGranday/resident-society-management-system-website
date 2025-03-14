@@ -1,0 +1,51 @@
+.society-details {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.society-details h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.society-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.society-details h2 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.society-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.society-details ul li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.society-details ul li p {
+  margin: 5px 0;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
