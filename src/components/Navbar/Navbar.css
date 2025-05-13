@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   padding: 1rem 2rem;
-  background: #000;
+  background: #88b7ff;
   z-index: 1000;
 }
 
@@ -51,6 +51,6 @@
 }
 
 .login-btn:hover {
-  background: #1557b0;
+  background: #1abc9c;
   transform: translateY(-2px);
 }

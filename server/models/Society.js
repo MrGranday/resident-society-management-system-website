@@ -1,39 +1,5 @@
 
 
-// import mongoose from 'mongoose';
-
-// const societySchema = new mongoose.Schema({
-
-//   name: { type: String, required: true },
-//   address: { type: String, required: true },
-//   managerEmail: { type: String, required: true },
-//   managerName: { type: String, required: true },
-//   uniqueIdCode: { type: String, required: true },
-//   manager: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-//   dateOfCreation: { type: Date, default: Date.now },
-//   residents: [{
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'User'
-//   }],
-//   residentRequests: [{
-//     name: String,
-//     phoneNumber: String,
-//     email: String,
-//     address: String,
-//     houseNumber: String,
-//     status: {
-//       type: String,
-//       enum: ['Pending', 'Approved', 'Rejected'],
-//       default: 'Pending'
-//     },
-//     createdAt: {
-//       type: Date,
-//       default: Date.now
-//     }
-//   }]
-// });
-
-// export default mongoose.model('Society', societySchema);
 
 import mongoose from 'mongoose';
 
@@ -47,6 +13,16 @@ const societySchema = new mongoose.Schema({
     type: String, 
     required: true, 
     trim: true 
+  },
+  description: {
+    type: String,
+    required: true,
+    trim: true,
+    maxlength: 150
+  },
+  image: {
+    type: String, // Store base64 string
+    required: true
   },
   managerEmail: { 
     type: String, 
@@ -72,7 +48,7 @@ const societySchema = new mongoose.Schema({
   },
   dateOfCreation: { 
     type: Date, 
-    default: Date.now 
+    required: true // Enforce required
   },
   residents: [{ 
     type: mongoose.Schema.Types.ObjectId, 
@@ -115,6 +91,17 @@ const societySchema = new mongoose.Schema({
       default: Date.now 
     }
   }]
+});
+
+// Validate image size (max 5MB)
+societySchema.pre('save', function(next) {
+  if (this.image) {
+    const imgSize = Buffer.byteLength(this.image, 'base64') / (1024 * 1024); // Convert to MB
+    if (imgSize > 5) {
+      return next(new Error('Image size must not exceed 5MB'));
+    }
+  }
+  next();
 });
 
 export default mongoose.model('Society', societySchema);

@@ -69,7 +69,7 @@ export default function Login({ onClose }) {
               required
             >
               <option value="admin">Admin</option>
-              <option value="manager">Manager</option>
+              <option value="manager">System Admin</option>
             </select>
           </div>
           <button type="submit" className="login-submit">Login</button>
